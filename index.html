@@ -1,6 +1,4 @@
-<!--       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfn8fxigtH_YbtdTkO_zNkA6g3Mck-EsQ&callback=initMap">
- -->
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
   <head>
   <meta charset="UTF-8" />
@@ -40,6 +38,7 @@ function initialize() {
     browserSupportFlag = true;
     navigator.geolocation.getCurrentPosition(function(position) {
       initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+
       map.setCenter(initialLocation);
 
       var marker = new google.maps.Marker({
@@ -133,38 +132,6 @@ function initialize() {
     })
 
 });
-
-
-// $(document).ready(function() {
-//   $('#strainhunter').on('submit', function(event){
-//     event.preventDefault();
-//     var userChoice = $('#hamburger').val();
-//     console.log(userChoice);
-//     // var strainGame;
-
-//     // make an ajax call to get strains objects https://www.cannabisreports.com/api/v1.0/strains/search/Blue
-//     $.ajax({
-//       url: 'https://www.cannabisreports.com/api/v1.0/strains/search/' + userChoice,
-//       method: 'GET',
-//       data: {
-//         // query: userChoice,
-//         key: '9e9da60250eada1542feb130229cbc85f08d565e'
-//       },
-//       dataType: 'jsonp',
-//     })
-//     .done(function(data){
-//       var query = data;
-//       strainGame = [query.data[0].name, query.data[0].ucpc];
-//       console.log(strainGame);
-//       // strainGame = 'L2KQMTUFDH000000000000000';
-//       $.ajax({
-//         url: 'https://www.cannabisreports.com/api/v1.0/strains/' + strainGame[1] + '/availability/geo/37.7818533/-122.4076475/25',
-      //   method: 'GET',
-      //   data : {
-      //     key: '9e9da60250eada1542feb130229cbc85f08d565e'
-      //   },
-      //   dataType: 'jsonp'
-      // })
       // .done(function(data) {
       //   var search = data;
       //   for (i = 0; i < search.data.length; i++){
@@ -173,24 +140,8 @@ function initialize() {
           //   title: 'Your Location',
           //   map: map
           // });
-    //     }
-    //   })
-    //   .fail(function(err){
-    //     if (err) throw err;
-    //   })
-    //   .always(function(){
-    //     console.log("Request Completed");
-    //   });
 
-    // })
-    // .fail(function(err){
-//       if (err) throw err;
-//     })
-//     .always(function(){
-//       console.log("Request Completed");
-//     });
-//   });
-// });
+
     </script>
 
     <script async defer
