@@ -13,7 +13,23 @@
     </style>
   </head>
   <body>
-    <header>PIFF!</header>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12" id="header">
+          <h1>Piff!</h1>
+             <form id="geoFinder">
+                <label>
+                  <font color="white">
+                ENTER YOUR LOCATION
+                  </font>
+                </label>
+                  <input type="text" name="geoFind" id="cords">
+                  <input type="submit" value="Geolocate" id="plotit">
+              </form>
+        </div>
+      </div>
+    </div>
+
     <div id="map"></div>
 
 <script type="text/javascript">
@@ -22,6 +38,9 @@ function initialize() {
     zoom: 10,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+
+  var geocoder = new google.maps.Geocoder();
+  //add event listener for form submission to execute geocode function
 
   var map = new google.maps.Map(document.getElementById("map"), myOptions);
 
@@ -150,15 +169,15 @@ function initialize() {
 
 <div class="container">
   <div class="row">
-    <div id="infoRow" class="col-sm-12 col-md-12 col-lg-12">
-      <span><h1>Strain Finder</h1></span>
-            <form id="strainhunter"><font color="white">
-                SEARCH BY STRAIN</font>:<br>
+    <div id="footer" class="col-sm-6">
+        <span><h1>Strain Finder</h1></span>
+            <form id="strainhunter"><label><font color="white">
+                SEARCH BY STRAIN</font></label>
                   <input type="text" name="strainfind" id="hamburger">
                   <input type="submit" value="Submit" id="sendit">
             </form>
-          </div>
         </div>
+      </div>
      <!-- <div class="row">
         <div id="0" class="col-sm-12 col-md-4 col-lg-4 cell"><div class="cellNum"></div></div>
         <div id="1" class="col-sm-12 col-md-4 col-lg-4 cell"><div class="cellNum"></div></div>
@@ -174,6 +193,7 @@ function initialize() {
         <div id="7" class="col-sm-12 col-md-4 col-lg-4 cell"><div class="cellNum"></div></div>
         <div id="8" class="col-sm-12 col-md-4 col-lg-4 cell"><div class="cellNum"></div></div>
       </div> -->
+
     </div>
 
 
