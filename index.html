@@ -24,6 +24,7 @@ function initialize() {
     zoom: 10,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+
   var map = new google.maps.Map(document.getElementById("map"), myOptions);
 
   var initialLocation;
@@ -82,7 +83,7 @@ function initialize() {
       url: 'https://www.cannabisreports.com/api/v1.0/strains/search/' + userChoice,
       method: 'GET',
       data: {
-
+        key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
       },
 
       dataType: "jsonp",
@@ -96,28 +97,31 @@ function initialize() {
 
       .done(function(data){
       var query = data;
-      strainGame = [query.data[0].ucpc];
+      strainGame = query.data[0].ucpc;
       console.log(strainGame);
       // strainGame = 'L2KQMTUFDH000000000000000';
 
       $.ajax({
-      url: 'https://www.cannabisreports.com/api/v1.0/strains/' + strainGame + '/availability/geo/37.7674193/-122.4286195/25',
+      url: 'https://www.cannabisreports.com/api/v1.0/strains/'+strainGame+'/availability/geo/37.7674193/-122.4286195/25',
       method: 'GET',
       data : {
-
+        key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
       },
       dataType: "jsonp",
     })
+
     .fail(function(err){
         if (err) throw err;
     })
 
     .done(function(data){
-    for (i = 0; i < data.data.length; i++){
-      var meridian = [data.data[i].location.lat, data.data[i].location.lng];
+      console.log(data);
+      var look = data;
+    for (i = 0; i < look.data.length; i++){
+      var meridian = [(look.data[i].location.lat, look.data[i].location.lng)];
         console.log(meridian);
     }
-
+    console.log('home');
     })
     })
 
