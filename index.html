@@ -23,8 +23,8 @@
                 ENTER YOUR LOCATION
                   </font>
                 </label>
-                  <input type="text" name="geoFind" id="cords">
-                  <input type="submit" value="Geolocate" id="plotit">
+                  <input id="address" type="textbox">
+                  <input id="plotIt" type="button" value="Geocode">
               </form>
         </div>
       </div>
@@ -33,6 +33,7 @@
     <div id="map"></div>
 
 <script type="text/javascript">
+
 function initialize() {
   var myOptions = {
     zoom: 10,
@@ -40,7 +41,9 @@ function initialize() {
   };
 
   var geocoder = new google.maps.Geocoder();
-  //add event listener for form submission to execute geocode function
+  document.getElementById('plotIt').addEventListener('click', function() {
+    geocodeAddress(geocoder, map);
+  });
 
   var map = new google.maps.Map(document.getElementById("map"), myOptions);
 
@@ -87,7 +90,23 @@ function initialize() {
     }
     map.setCenter(initialLocation);
   }
+
+  function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('address').value;
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      resultsMap.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+
 }
+
 
   $(document).ready(function() {
     $('#strainhunter').on('submit', function(event){
@@ -151,6 +170,7 @@ function initialize() {
     })
 
 });
+};
       // .done(function(data) {
       //   var search = data;
       //   for (i = 0; i < search.data.length; i++){
