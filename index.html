@@ -20,7 +20,7 @@
              <form id="geoFinder">
                 <label>
                   <font color="white">
-                ENTER YOUR LOCATION
+                CHANGE YOUR LOCATION
                   </font>
                 </label>
                   <input id="address" type="textbox">
@@ -40,7 +40,11 @@ function initialize() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
+  var loc = [];
+  var retail; // to hold the dispensary name
+  var marker;
   var geocoder = new google.maps.Geocoder();
+
   document.getElementById('plotIt').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
   });
@@ -93,16 +97,22 @@ function initialize() {
 
   function geocodeAddress(geocoder, resultsMap) {
   var address = document.getElementById('address').value;
+
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       resultsMap.setCenter(results[0].geometry.location);
+      loc[0]=results[0].geometry.location.lat();
+      loc[1]=results[0].geometry.location.lng();
+
       var marker = new google.maps.Marker({
         map: resultsMap,
         position: results[0].geometry.location
       });
+
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
+    console.log(loc[0], loc[1]);
   });
 
 }
@@ -117,7 +127,7 @@ function initialize() {
 
     // make an ajax call to get strains objects
     $.ajax({
-      url: 'https://www.cannabisreports.com/api/v1.0/strains/search/' + userChoice,
+      url: 'https://www.cannabisreports.com/api/v1.0/extracts/type/' + userChoice,
       method: 'GET',
       data: {
         key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
@@ -136,10 +146,10 @@ function initialize() {
       var query = data;
       strainGame = query.data[0].ucpc;
       console.log(strainGame);
-      // strainGame = 'L2KQMTUFDH000000000000000';
+      // strainGame = '6WERQVLT3A2WJVPVPD7W00000';
 
       $.ajax({
-      url: 'https://www.cannabisreports.com/api/v1.0/strains/'+strainGame+'/availability/geo/37.7674193/-122.4286195/25',
+      url: 'https://www.cannabisreports.com/api/v1.0/extracts/'+strainGame+'/availability/geo/'+loc[0]+'/'+loc[1]+'/10',
       method: 'GET',
       data : {
         key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
@@ -152,13 +162,19 @@ function initialize() {
     })
 
     .done(function(data){
-      console.log(data);
-      var look = data;
-    for (i = 0; i < look.data.length; i++){
-      var meridian = [(look.data[i].location.lat, look.data[i].location.lng)];
-        console.log(meridian);
-    }
-    console.log('home');
+
+      var retail = data.data[0].location.name;
+
+    //   var look = data;
+    // for (i = 0; i < look.data.length; i++){
+    //   var meridian = [(look.data[i].location.lat, look.data[i].location.lng)];
+    //     console.log(meridian);
+    // }
+    var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(loc[0], loc[1]),
+            title: retail,
+            map: map
+          });
     })
     })
 
