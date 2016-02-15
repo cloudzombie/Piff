@@ -43,6 +43,8 @@ function initialize() {
   var loc = [];
   var retail; // to hold the dispensary name
   var marker;
+  var upcpArr;
+  var strainloc;
   var geocoder = new google.maps.Geocoder();
 
   document.getElementById('plotIt').addEventListener('click', function() {
@@ -127,7 +129,7 @@ function initialize() {
 
     // make an ajax call to get strains objects
     $.ajax({
-      url: 'https://www.cannabisreports.com/api/v1.0/extracts/type/' + userChoice,
+      url: 'https://www.cannabisreports.com/api/v1.0/strains/search/' + userChoice,
       method: 'GET',
       data: {
         key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
@@ -144,12 +146,12 @@ function initialize() {
 
       .done(function(data){
       var query = data;
+      console.log(query);
       strainGame = query.data[0].ucpc;
       console.log(strainGame);
-      // strainGame = '6WERQVLT3A2WJVPVPD7W00000';
 
       $.ajax({
-      url: 'https://www.cannabisreports.com/api/v1.0/extracts/'+strainGame+'/availability/geo/'+loc[0]+'/'+loc[1]+'/10',
+      url: 'https://www.cannabisreports.com/api/v1.0/strains/'+strainGame+'/availability/geo/'+loc[0]+'/'+loc[1]+'/5',
       method: 'GET',
       data : {
         key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
@@ -162,8 +164,14 @@ function initialize() {
     })
 
     .done(function(data){
+      console.log(data);
+      var strainloc = [];
+        for (i=0;i < 1; i++){
+          strainloc.push(data.data[i].location);
+          console.log(strainloc);
+        }
 
-      var retail = data.data[0].location.name;
+      // var retail = data.data[0].location.name;
 
     //   var look = data;
     // for (i = 0; i < look.data.length; i++){
