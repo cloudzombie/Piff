@@ -166,9 +166,9 @@ function initialize() {
     .done(function(data){
       console.log(data);
       var strainloc = [];
-        for (i=0;i < 1; i++){
+        for (i=0;i < data.data.length; i++){
           strainloc.push(data.data[i].location);
-          console.log(strainloc);
+          console.log(strainloc[0].lng);
         }
 
       // var retail = data.data[0].location.name;
@@ -179,7 +179,7 @@ function initialize() {
     //     console.log(meridian);
     // }
     var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(loc[0], loc[1]),
+            position: new google.maps.LatLng(strainloc[0].lat, strainloc[0].lng),
             title: retail,
             map: map
           });
