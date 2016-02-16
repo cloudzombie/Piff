@@ -146,9 +146,7 @@ function initialize() {
 
       .done(function(data){
       var query = data;
-      console.log(query);
       strainGame = query.data[0].ucpc;
-      console.log(strainGame);
 
       $.ajax({
       url: 'https://www.cannabisreports.com/api/v1.0/strains/'+strainGame+'/availability/geo/'+loc[0]+'/'+loc[1]+'/25',
@@ -164,11 +162,16 @@ function initialize() {
     })
 
     .done(function(data){
-      console.log(data);
       var strainloc = [];
         for (i=0;i < data.data.length; i++){
-          strainloc.push(data.data[i].location);
-          console.log(strainloc[0].lng);
+          // strainloc.push(data.data[i].location.lat, data.data[i].location.lng);
+          strainloc.push(data.data[i].location)
+          // console.log(strainloc);
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(strainloc[i].lat, strainloc[i].lng),
+            title: retail,
+            map: map
+          });
         }
 
       // var retail = data.data[0].location.name;
@@ -178,11 +181,7 @@ function initialize() {
     //   var meridian = [(look.data[i].location.lat, look.data[i].location.lng)];
     //     console.log(meridian);
     // }
-    var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(strainloc[0].lat, strainloc[0].lng),
-            title: retail,
-            map: map
-          });
+
     })
     })
 
