@@ -1,3 +1,4 @@
+// initialize map object
 function initialize() {
   var myOptions = {
     zoom: 10,
@@ -11,6 +12,7 @@ function initialize() {
   var strainloc;
   var geocoder = new google.maps.Geocoder();
 
+// initialize on user location with W3C geolocation
   document.getElementById('plotIt').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
   });
@@ -32,7 +34,7 @@ function initialize() {
       initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
 
       map.setCenter(initialLocation);
-
+      // place marker on user location upon initialization
       var marker = new google.maps.Marker({
         position: initialLocation,
         title: 'Your Location',
@@ -60,9 +62,9 @@ function initialize() {
     }
     map.setCenter(initialLocation);
   }
-
+  // geocoding function for user to change location
   function geocodeAddress(geocoder, resultsMap) {
-  var address = document.getElementById('address').value;
+  var address = document.getElementById('hamburger').value;
 
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
@@ -83,7 +85,7 @@ function initialize() {
 
 }
 
-
+  // get data from API via AJAX request
   $(document).ready(function() {
     $('#strainhunter').on('submit', function(event){
       event.preventDefault();
