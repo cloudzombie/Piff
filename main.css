@@ -1,45 +1,7 @@
-
-
-/*header {
-  background-color: #493548;
-  border: 3px solid black;
-  font-family: sans-serif;
-  font-style: bold;
-  font-weight: bold;
-  font-size: 2em;
-  color: white;
-  text-align: center;
-  text-shadow: 2px;
-}*/
-
-/*.cellNum {
-  height: 150px;
-  max-width:  410px;
-  border: 1px solid white;
-  background-color: #4B4E6D;
-  text-align: center;
-  display: inline-block;
-  margin:  auto 0;
-  padding: 0;
-
-}*/
-
 #header {
   background-color: #493548;
   border: 3px solid black;
   padding-bottom: 0;
-  display: inline-block;
-  max-width: 100%;
-
-}
-
-#footer {
-  background-color: #493548;
-  border: 3px solid black;
-  padding-bottom: 0;
-  display: inline-block;
-  max-width: 100%;
-
 }
 
 h1 {
@@ -51,15 +13,6 @@ h1 {
   text-shadow: 2px;
 }
 
-/*#strainhunter {
-  position: absolute;
-  top: 10px;
-  right: 30px;
-  bottom: 10px;
-  left: 10px;
-  margin-left: 500px;
-}
-*/
 #strainform {
   font: white;
 }
