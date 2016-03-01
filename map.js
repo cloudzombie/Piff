@@ -128,6 +128,7 @@ function initialize() {
     })
 
     .done(function(data){
+      console.log(data);
       var strainloc = [];
         for (i=0;i < data.data.length; i++){
           // strainloc.push(data.data[i].location.lat, data.data[i].location.lng);
