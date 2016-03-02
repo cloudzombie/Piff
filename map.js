@@ -139,15 +139,21 @@ function initialize() {
           dspot.push(data.data[i].location.name);
           console.log(dspot);
 
-          var disdesc = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-            '</div>';
+          // var disdesc = '<div id="content">'+
+          //   '<div id="siteNotice">'+
+          //   '</div>'+
+          //   '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+          //   '</div>';
 
+          //
+          function storeName(){
+            for (i=0; i < dspot.length; i++) {
+              return dspot[i]
+          };
+        }
 
           var infowindow = new google.maps.InfoWindow({
-            content: disdesc
+            // content: disdesc
           });
 
         function dropMarker() {
@@ -158,7 +164,7 @@ function initialize() {
           });
           google.maps.event.addListener(marker, 'click', function(){
             infowindow.close(); // Close previously opened infowindow
-            infowindow.setContent( "<div id='infowindow'>"+ dspot[i] +"</div>");
+            infowindow.setContent( "<div id='infowindow'>"+ dspot[0] +"</div>");
             infowindow.open(map, marker);
           });
         }
