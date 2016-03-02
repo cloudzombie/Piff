@@ -129,16 +129,36 @@ function initialize() {
 
     .done(function(data){
       console.log(data);
-      var strainloc = [];
+      var strainloc = []; //array of dispensary lat & lng
+      var dspot = []; //array of same dispensary names
         for (i=0;i < data.data.length; i++){
+
           // strainloc.push(data.data[i].location.lat, data.data[i].location.lng);
-          strainloc.push(data.data[i].location)
+          strainloc.push(data.data[i].location);
+          dspot.push(data.data[i].location.name);
+          console.log(dspot);
           // console.log(strainloc);
+          var disdesc = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+            '</div>';
+
+
+          var infowindow = new google.maps.InfoWindow({
+            content: disdesc
+          });
+
           var marker = new google.maps.Marker({
             position: new google.maps.LatLng(strainloc[i].lat, strainloc[i].lng),
             title: retail,
             map: map
           });
+
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+
         }
       })
     })
