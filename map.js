@@ -62,6 +62,7 @@ function initialize() {
     }
     map.setCenter(initialLocation);
   }
+
   // geocoding function for user to change location
   function geocodeAddress(geocoder, resultsMap) {
   var address = document.getElementById('hamburger').value;
@@ -84,8 +85,7 @@ function initialize() {
   });
 
 }
-
-  // get data from API via AJAX request
+ // get data from API via AJAX request
   $(document).ready(function() {
     $('#strainhunter').on('submit', function(event){
       event.preventDefault();
@@ -173,4 +173,8 @@ function initialize() {
     })
     })
   });
+
+
 };
+
+
