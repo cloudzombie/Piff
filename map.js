@@ -112,6 +112,7 @@ function initialize() {
 
       .done(function(data){
       var query = data;
+      console.log(query);
       strainGame = query.data[0].ucpc;
 
       $.ajax({
@@ -129,15 +130,15 @@ function initialize() {
 
     .done(function(data){
       console.log(data);
-      var strainloc = []; //array of dispensary lat & lng
-      var dspot = []; //array of same dispensary names
-        for (i=0;i < data.data.length; i++){
-
-          // strainloc.push(data.data[i].location.lat, data.data[i].location.lng);
+      var strainloc = [];        //array of dispensary lat & lng
+      var dspot = [];             //array of same dispensary names
+        for (i=0; i < data.data.length; i++){
           strainloc.push(data.data[i].location);
+          console.log(strainloc);
+
           dspot.push(data.data[i].location.name);
           console.log(dspot);
-          // console.log(strainloc);
+
           var disdesc = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -149,15 +150,23 @@ function initialize() {
             content: disdesc
           });
 
+        function dropMarker() {
+          var latlng = new google.maps.LatLng(strainloc[i].lat, strainloc[i].lng);
           var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(strainloc[i].lat, strainloc[i].lng),
-            title: retail,
-            map: map
+            position: latlng,
+            map: map,
           });
-
-          marker.addListener('click', function() {
+          google.maps.event.addListener(marker, 'click', function(){
+            infowindow.close(); // Close previously opened infowindow
+            infowindow.setContent( "<div id='infowindow'>"+ dspot[i] +"</div>");
             infowindow.open(map, marker);
-        });
+          });
+        }
+
+        for (i = 0; i < strainloc.length; i++) {
+          dropMarker(strainloc[i]);
+        }
+
 
         }
       })
