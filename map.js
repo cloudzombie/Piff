@@ -156,15 +156,15 @@ function initialize() {
             // content: disdesc
           });
 
-        function dropMarker() {
-          var latlng = new google.maps.LatLng(strainloc[i].lat, strainloc[i].lng);
+        function dropMarker(loc) {
+          var latlng = new google.maps.LatLng(loc.lat, loc.lng);
           var marker = new google.maps.Marker({
             position: latlng,
             map: map,
           });
           google.maps.event.addListener(marker, 'click', function(){
             infowindow.close(); // Close previously opened infowindow
-            infowindow.setContent( "<div id='infowindow'>"+ dspot[0] +"</div>");
+            infowindow.setContent( "<div id='infowindow'>"+ loc['name'] +"</div>");
             infowindow.open(map, marker);
           });
         }
