@@ -90,7 +90,6 @@ function initialize() {
     $('#strainhunter').on('submit', function(event){
       event.preventDefault();
       var userChoice = $('#hamburger').val();
-      console.log(userChoice);
       var strainGame;
 
     // make an ajax call to get strains objects
@@ -135,22 +134,7 @@ function initialize() {
         for (i=0; i < data.data.length; i++){
           strainloc.push(data.data[i].location);
           console.log(strainloc);
-
-          dspot.push(data.data[i].location.name);
-          console.log(dspot);
-
-          // var disdesc = '<div id="content">'+
-          //   '<div id="siteNotice">'+
-          //   '</div>'+
-          //   '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-          //   '</div>';
-
-          //
-          function storeName(){
-            for (i=0; i < dspot.length; i++) {
-              return dspot[i]
-          };
-        }
+        };
 
           var infowindow = new google.maps.InfoWindow({
             // content: disdesc
@@ -174,7 +158,7 @@ function initialize() {
         }
 
 
-        }
+
       })
     })
     })

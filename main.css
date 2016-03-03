@@ -1,3 +1,7 @@
+#map {
+  z-index: -2;
+}
+
 #header {
   background-color: #493548;
   border: 3px solid black;
@@ -5,8 +9,8 @@
   width: 100%;
   height: 100px;
   position: fixed;
-  z-index: 2;
 }
+
 
 form {
   position: absolute;
@@ -43,5 +47,53 @@ h3 {
 
 br {
   color: white;
+}
+
+/*all below this line is for the sliding panel*/
+.cd-panel {
+  /*...*/
+  visibility: hidden;
+  transition: visibility 0s 0.6s;
+}
+
+.cd-panel.is-visible {
+  visibility: visible;
+  transition: visibility 0s 0s;
+}
+
+.cd-panel-header {
+  /*...*/
+  position: fixed;
+  top: -50px;
+  width: 90%;
+  height: 50px;
+  transition: top 0.3s 0s;
+  background-color: orange;
+}
+
+.is-visible .cd-panel-header {
+  top: 0;
+  transition: top 0.3s 0.3s;
+}
+
+.cd-panel-container {
+  /*...*/
+  position: fixed;
+  width: 90%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: gray;
+
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-delay: 0.3s;
+
+  transform: translate3d(100%, 0, 0);
+}
+
+.is-visible .cd-panel-container {
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0s;
 }
 
