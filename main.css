@@ -11,16 +11,17 @@ html, body {
 }
 
 #map-box {
- height: 500px;
+ height: 650px;
 }
 
-#header {
+#heading {
   background-color: #493548;
   border: 3px solid black;
-  padding-bottom: 0;
   width: 100%;
   height: 100px;
+  padding-bottom: 0;
   position: fixed;
+  z-index: 1;
 }
 
 
@@ -60,4 +61,5 @@ h3 {
 br {
   color: white;
 }
+
 
