@@ -4,12 +4,15 @@ function initialize() {
     zoom: 10,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+  var map = new google.maps.Map(document.getElementById("map"), myOptions);
+  var infowindow = new google.maps.InfoWindow({});
+  var initialLocation;
+  var marker;
+
 
   var loc = [];
-  var retail; // to hold the dispensary name
-  var marker;
   var upcpArr;
-  var strainloc;
+  var strainloc = [];
   var geocoder = new google.maps.Geocoder();
 
 // initialize on user location with W3C geolocation
@@ -17,13 +20,10 @@ function initialize() {
     geocodeAddress(geocoder, map);
   });
 
-  var map = new google.maps.Map(document.getElementById("map"), myOptions);
 
-  var initialLocation;
   var siberia = new google.maps.LatLng(60, 105);
   var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
   var browserSupportFlag =  new Boolean();
-
   // NOTE: This uses cross-domain XHR, and may not work on older browsers.
 
 
@@ -32,7 +32,6 @@ function initialize() {
     browserSupportFlag = true;
     navigator.geolocation.getCurrentPosition(function(position) {
       initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-
       map.setCenter(initialLocation);
       // place marker on user location upon initialization
       var marker = new google.maps.Marker({
@@ -85,6 +84,7 @@ function initialize() {
   });
 
 }
+
  // get data from API via AJAX request
   $(document).ready(function() {
     $('#strainhunter').on('submit', function(event){
@@ -129,16 +129,11 @@ function initialize() {
 
     .done(function(data){
       console.log(data);
-      var strainloc = [];        //array of dispensary lat & lng
-      var dspot = [];             //array of same dispensary names
         for (i=0; i < data.data.length; i++){
-          strainloc.push(data.data[i].location);
-          console.log(strainloc);
-        };
+            strainloc.push(data.data[i].location);
+          };
 
-          var infowindow = new google.maps.InfoWindow({
-            // content: disdesc
-          });
+
 
         function dropMarker(loc) {
           var latlng = new google.maps.LatLng(loc.lat, loc.lng);
@@ -154,7 +149,11 @@ function initialize() {
         }
 
         for (i = 0; i < strainloc.length; i++) {
-          dropMarker(strainloc[i]);
+          if (strainloc.length > 10 ) {
+            strainloc = [];
+          } else {
+            dropMarker(strainloc[i]);
+          }
         }
 
 
@@ -163,8 +162,7 @@ function initialize() {
     })
     })
   });
-
-
 };
+
 
 
