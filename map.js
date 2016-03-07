@@ -8,10 +8,7 @@ function initialize() {
   var infowindow = new google.maps.InfoWindow({});
   var initialLocation;
   var marker;
-
-
   var loc = [];
-  var upcpArr;
   var strainloc = [];
   var geocoder = new google.maps.Geocoder();
 
@@ -64,7 +61,7 @@ function initialize() {
 
   // geocoding function for user to change location
   function geocodeAddress(geocoder, resultsMap) {
-  var address = document.getElementById('hamburger').value;
+  var address = document.getElementById('hotdog').value;
 
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
@@ -163,6 +160,5 @@ function initialize() {
     })
   });
 };
-
 
 
