@@ -97,7 +97,7 @@ function initialize() {
         key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
       },
 
-      dataType: "jsonp",
+      dataType: "json",
 
       })
 
@@ -108,7 +108,6 @@ function initialize() {
 
       .done(function(data){
       var query = data;
-      console.log(query);
       strainGame = query.data[0].ucpc;
 
       $.ajax({
@@ -117,7 +116,7 @@ function initialize() {
       data : {
         key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
       },
-      dataType: "jsonp",
+      dataType: "json",
     })
 
     .fail(function(err){
@@ -125,12 +124,9 @@ function initialize() {
     })
 
     .done(function(data){
-      console.log(data);
         for (i=0; i < data.data.length; i++){
             strainloc.push(data.data[i].location);
           };
-
-
 
         function dropMarker(loc) {
           var latlng = new google.maps.LatLng(loc.lat, loc.lng);
@@ -146,15 +142,8 @@ function initialize() {
         }
 
         for (i = 0; i < strainloc.length; i++) {
-          if (strainloc.length > 10 ) {
-            strainloc = [];
-          } else {
-            dropMarker(strainloc[i]);
-          }
-        }
-
-
-
+          dropMarker(strainloc[i]);
+        };
       })
     })
     })

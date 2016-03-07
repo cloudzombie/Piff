@@ -7,18 +7,18 @@ html, body {
 
 #map {
   height: 100%;
-}
+  background-size: cover;
+  }
 
 #map-box {
- height: 650px;
+ height: 750px;
 }
 
 
 #heading {
   background-color: green;
   border: 3px solid black;
-  width: 150px;
-  height: 300px;
+  width: 100%;
   padding-bottom: 0;
   position: fixed;
   z-index: 2;
@@ -49,9 +49,15 @@ h3 {
   text-shadow: 2px;
 }
 
-#geolocator {
+#strainhunter {
   position: relative;
-  top: 300px;
+  left: 500px;
+  top: 10px;
+}
+
+#cola {
+  position: relative;
+  bottom: 50px;
 }
 
 #strainform {
