@@ -5,7 +5,10 @@ function initialize() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   var map = new google.maps.Map(document.getElementById("map"), myOptions);
-  var infowindow = new google.maps.InfoWindow({});
+  var infowindow = new google.maps.InfoWindow({
+    maxWidth: 150
+  });
+
   var initialLocation;
   var marker;
   var loc = [];
@@ -151,7 +154,7 @@ function initialize() {
               if (err) throw err;
             })
             .done(function(data){
-              $("#infowindow").append("<a href=" + data.data.url + ">" + loc['name'] + "</a>" + "<img src=" + data.data.image + ">");
+              $("#infowindow").append("<h1><a href=" + data.data.url + ">" + loc['name'] + "</a></h1>" + "<img src=" + data.data.image + ">");
             });
           });
         } // end of dropMarker
