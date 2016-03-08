@@ -136,15 +136,30 @@ function initialize() {
           });
           google.maps.event.addListener(marker, 'click', function(){
             infowindow.close(); // Close previously opened infowindow
-            infowindow.setContent( "<div id='infowindow'>"+ loc['name'] +"</div>");
+            infowindow.setContent( "<div id='infowindow'>" + "</div>");
             infowindow.open(map, marker);
+            $.ajax({
+              url: loc['link'],
+              method: 'GET',
+              data: {
+                key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
+              },
+              dataType: 'json'
+            })
+
+            .fail(function(err){
+              if (err) throw err;
+            })
+            .done(function(data){
+              $("#infowindow").append("<a href=" + data.data.url + ">" + loc['name'] + "</a>");
+            });
           });
-        }
+        } // end of dropMarker
 
         for (i = 0; i < strainloc.length; i++) {
           dropMarker(strainloc[i]);
         };
-      })
+      }) // end of .done function
     })
     })
   });
