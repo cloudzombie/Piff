@@ -68,6 +68,10 @@ h3 {
   color: black;
 }
 
+#infowindow > h1, p {
+  text-align: center;
+}
+
 br {
   color: white;
 }
