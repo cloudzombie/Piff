@@ -151,7 +151,7 @@ function initialize() {
               if (err) throw err;
             })
             .done(function(data){
-              $("#infowindow").append("<a href=" + data.data.url + ">" + loc['name'] + "</a>");
+              $("#infowindow").append("<a href=" + data.data.url + ">" + loc['name'] + "</a>" + "<img src=" + data.data.image + ">");
             });
           });
         } // end of dropMarker
