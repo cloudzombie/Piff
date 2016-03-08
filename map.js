@@ -132,10 +132,12 @@ function initialize() {
           };
 
         function dropMarker(loc) {
+          var image = "http://marijuanapolitics.com/wp-content/uploads/leaflet-maps-marker-icons/marijuana.png";
           var latlng = new google.maps.LatLng(loc.lat, loc.lng);
           var marker = new google.maps.Marker({
             position: latlng,
             map: map,
+            icon: image
           });
           google.maps.event.addListener(marker, 'click', function(){
             infowindow.close(); // Close previously opened infowindow
