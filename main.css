@@ -53,12 +53,12 @@ h3 {
 #strainhunter {
   position: relative;
   left: 500px;
-  top: 10px;
-}
+/*  top: 10px;
+*/}
 
 #cola {
   position: relative;
-  bottom: 50px;
+  bottom: 25px;
 }
 
 #strainform {
