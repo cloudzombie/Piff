@@ -1,3 +1,9 @@
+var geocode = function(){};
+var initialLocation;
+var marker;
+var loc = [];
+var strainloc = [];
+
 // initialize map object
 function initialize() {
   var myOptions = {
@@ -9,15 +15,11 @@ function initialize() {
     maxWidth: 150
   });
 
-  var initialLocation;
-  var marker;
-  var loc = [];
-  var strainloc = [];
-  var geocoder = new google.maps.Geocoder();
+
 
 // initialize on user location with W3C geolocation
   document.getElementById('plotIt').addEventListener('click', function() {
-    geocodeAddress(geocoder, map);
+    geocode(geocoder, map);
   });
 
 
@@ -50,8 +52,9 @@ function initialize() {
     browserSupportFlag = false;
     handleNoGeolocation(browserSupportFlag);
   }
+  };
 
-  function handleNoGeolocation(errorFlag) {
+function handleNoGeolocation(errorFlag) {
     if (errorFlag == true) {
       alert("Geolocation service failed.");
       initialLocation = newyork;
@@ -63,9 +66,10 @@ function initialize() {
   }
 
   // geocoding function for user to change location
-  function geocodeAddress(geocoder, resultsMap) {
-  var address = document.getElementById('hotdog').value;
+var geocode = function geocodeAddress(geocoder, resultsMap) {
+  var geocoder = new google.maps.Geocoder();
 
+  var address = document.getElementById('hotdog').value;
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       resultsMap.setCenter(results[0].geometry.location);
@@ -80,7 +84,6 @@ function initialize() {
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
-    console.log(loc[0], loc[1]);
   });
 
 }
@@ -170,6 +173,5 @@ function initialize() {
     })
     })
   });
-};
 
 
