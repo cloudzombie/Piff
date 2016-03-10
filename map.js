@@ -1,8 +1,8 @@
-var geocode = function(){};
 var initialLocation;
 var marker;
 var loc = [];
 var strainloc = [];
+var geocoder;
 
 // initialize map object
 function initialize() {
@@ -19,7 +19,7 @@ function initialize() {
 
 // initialize on user location with W3C geolocation
   document.getElementById('plotIt').addEventListener('click', function() {
-    geocode(geocoder, map);
+    geocodeAddress(geocoder, map);
   });
 
 
@@ -66,9 +66,8 @@ function handleNoGeolocation(errorFlag) {
   }
 
   // geocoding function for user to change location
-var geocode = function geocodeAddress(geocoder, resultsMap) {
+function geocodeAddress(geocoder, resultsMap) {
   var geocoder = new google.maps.Geocoder();
-
   var address = document.getElementById('hotdog').value;
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
@@ -86,7 +85,7 @@ var geocode = function geocodeAddress(geocoder, resultsMap) {
     }
   });
 
-}
+
 
  // get data from API via AJAX request
   $(document).ready(function() {
@@ -173,5 +172,5 @@ var geocode = function geocodeAddress(geocoder, resultsMap) {
     })
     })
   });
-
+};
 
