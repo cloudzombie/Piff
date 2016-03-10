@@ -156,8 +156,8 @@ function initialize() {
               if (err) throw err;
             })
             .done(function(data){
-              $("#infowindow").append("<h1><a href=" + data.data.url + ">" + loc['name'] +
-              "</a></h1>" + "<p>" + data.data["city"] + "," + data.data["state"] + "<br>" +
+              $("#infowindow").append("<h3><a href=" + data.data.url + ">" + loc['name'] +
+              "</a></h3>" + "<p>" + data.data["city"] + "," + data.data["state"] + "<br>" +
               data.data.address["address1"] + "<br>" +data.data.address["zip"] + "</p>");
             });
           });
