@@ -1,8 +1,5 @@
-var initialLocation;
-var marker;
 var loc = [];
 var strainloc = [];
-var geocoder;
 
 // initialize map object
 function initialize() {
@@ -10,6 +7,8 @@ function initialize() {
     zoom: 10,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+
+  var geocoder = new google.maps.Geocoder();
   var map = new google.maps.Map(document.getElementById("map"), myOptions);
   var infowindow = new google.maps.InfoWindow({
     maxWidth: 150
@@ -52,7 +51,7 @@ function initialize() {
     browserSupportFlag = false;
     handleNoGeolocation(browserSupportFlag);
   }
-  };
+
 
 function handleNoGeolocation(errorFlag) {
     if (errorFlag == true) {
@@ -84,7 +83,7 @@ function geocodeAddress(geocoder, resultsMap) {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
-
+};
 
 
  // get data from API via AJAX request
@@ -173,4 +172,5 @@ function geocodeAddress(geocoder, resultsMap) {
     })
   });
 };
+
 
