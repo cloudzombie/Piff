@@ -157,7 +157,7 @@ function geocodeAddress(geocoder, resultsMap) {
               if (err) throw err;
             })
             .done(function(data){
-              $("#infowindow").append("<h3><a href=" + data.data.url + ">" + loc['name'] +
+              $("#infowindow").append('<h3><a href="' + data.data.url + '" target="_blank">' + loc['name'] +
               "</a></h3>" + "<p>" + data.data["city"] + "," + data.data["state"] + "<br>" +
               data.data.address["address1"] + "<br>" +data.data.address["zip"] + "</p>");
             });
