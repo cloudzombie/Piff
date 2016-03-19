@@ -8,6 +8,22 @@ body {
   background-color: #8CAE68;
 }
 
+#logo {
+  color: white;
+  position: relative;
+  right: 200px;
+  bottom: 70px;
+  font-size: 60px;
+}
+
+#logo-add {
+  padding: 5px;
+  color: white;
+  position: relative;
+  left: 385px;
+  bottom: 130px;
+}
+
 #map {
 position: relative;
 left: 80px;
@@ -29,6 +45,7 @@ width: 90%;
 
 form {
   display: inline-block;
+  z-index: 2;
 }
 
 
@@ -59,7 +76,8 @@ h3 {
 
 #cola {
   position: relative;
-  bottom: 25px;
+  top: 10px;
+  right: 350px;
 }
 
 #strainform {
