@@ -105,9 +105,9 @@ function geocodeAddress(geocoder, resultsMap) {
 
  // get data from API via AJAX request
   $(document).ready(function() {
-    $('#strainhunter').on('submit', function(event){
+    $('#sendIt').on('click', function(event){
       event.preventDefault();
-      var userChoice = $('#hamburger').val();
+      var userChoice = $('#hotdog').val();
       var strainGame;
 
     // make an ajax call to get strains objects
