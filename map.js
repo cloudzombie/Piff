@@ -15,9 +15,11 @@ function initialize() {
   var customMapTypeId = 'custom_style';
   var myOptions = {
     zoom: 10,
+
     mapTypeControlOptions: {
-        mapTypeIds: [ google.maps.MapTypeId.ROADMAP, customMapTypeId ]
-    }
+        mapTypeIds: [ google.maps.MapTypeId.ROADMAP, customMapTypeId ],
+        position:google.maps.ControlPosition.BOTTOM_CENTER
+    },
   };
 
 
@@ -118,7 +120,7 @@ function geocodeAddress(geocoder, resultsMap) {
         key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
       },
 
-      dataType: "json",
+      dataType: 'jsonp',
 
       })
 

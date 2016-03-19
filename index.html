@@ -2,7 +2,9 @@
 <html>
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
     <link rel="stylesheet" href="style.css">
@@ -11,42 +13,16 @@
     <title>PIFF!</title>
   </head>
   <body>
-    <main class="cd-main-content">
-<!--       <div class="container-fluid">
-        <div class="row" id="heading">
-            <h1 class="logo">PIFF!</h1>
-            <p class="logo">Cannabis Strain Finder</p>
-          <div class="col-6-sm" id="navs">
-            <form id="strainhunter">
-              <label>
-                <font color="white">
-                  Leaf for strain search,
-                </font>
-              </label>
-                <input id="hamburger"  placeholder="Strain Search" type="text" name="strainfind">
-                <button id="sendit" type="submit"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></button>
-            </form>
-            <form id="cola">
-          <label>
-            <font color="white">
-              Globe to change geolocation,
-            </font>
-          </label>
-              <input id="hotdog" placeholder="Geolocate" type="text" name="geo">
-              <button id="plotIt" type="button"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></button>
-            </form>
-          </div>
-          <div class="col-6-sm">
-        </div>
-        </div>
-      </div> -->
-      <div class="input-group">
+    <main>
+    <div class="container-fluid">
+      <div id="strain-hunter" class="input-group">
         <div class="input-group-btn">
           <button id="sendIt" type="button" class="btn btn-default"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></button>
           <button id="plotIt" type="button" class="btn btn-default"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></button>
           <!-- Buttons -->
         </div>
           <input id="hotdog" type="text" placeholder="Enter Strain" class="form-control" aria-label="...">
+        </div>
         </div>
 </main>
 
