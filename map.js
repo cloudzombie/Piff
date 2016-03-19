@@ -137,7 +137,7 @@ function geocodeAddress(geocoder, resultsMap) {
       data : {
         key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
       },
-      dataType: "json",
+      dataType: 'jsonp',
     })
 
     .fail(function(err){
@@ -167,7 +167,7 @@ function geocodeAddress(geocoder, resultsMap) {
               data: {
                 key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
               },
-              dataType: 'json'
+              dataType: 'jsonp'
             })
 
             .fail(function(err){
