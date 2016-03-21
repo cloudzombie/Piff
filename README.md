@@ -1,14 +1,16 @@
 # Piff
-This is a web based application fuctioning on client side only. The user interfaces with a map object provided by
-google maps API and queries for cannabis strains, in states where it is legal, and the cannabis reports API
-returns positions of dispensaries which sell that strain. A marker is placed on each lat and lng.
+Client side based application that connects users, who live in states that 
+have passed legislation legalizing recreational and/or medical cannabis, with 
+thier prefered strains and the legally liscensed retail outlets carrying that
+strain. 
 
-There is on input field for text; type the strain you want and click the leaf. Or type a location and click the phone. The API 
-is still being developed so the sucess of the queries is location dependent.
+When the user arrives at the web page, the current location is centered on the
+map and strain searches can be made by typing text into the text box and then 
+clicking the leaf button.
 
-Features I want to add:
+The search location is limited to 25 mile radius around the user's geoloaction. 
+This is a direct limitiation of the API powering the queries. The number of returned 
+hits for dispensaries carrying a specific strain is limited  by the API to 10. 
 
-A button to toggle querying for extracts instead of strains
-Styling
-An accordion button which brings the user to a new view which lists divs containing results from a strain query; 
-each div has the name, address, phone, etc of the dispensary and the dispensaries are ordered by distance from user
+To change the search location, empty the input field and type in your address and
+click the globe button. 
