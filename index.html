@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
     <link rel="stylesheet" href="style.css">
@@ -12,23 +10,27 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <title>PIFF!</title>
   </head>
+
   <body>
-    <main>
+  <main>
     <header>
-    <div class="container-fluid">
-     <div class="input-group" id="strain-hunter">
-       <div class="input-group-btn">
-          <button class="btn btn-default" type="button" class="btn btn-default"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"</span></button>
-          <!-- hamburger button -->
-          <button id="sendIt" type="button" class="btn btn-default"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></button>
-          <button id="plotIt" type="button" class="btn btn-default"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></button>
-          <!-- Buttons -->
+      <div class="container-fluid">
+        <div class="input-group" id="strain-hunter">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
+            <!-- hamburger button -->
+            <button id="sendIt" type="button" class="btn btn-default"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></button>
+            <button id="plotIt" type="button" class="btn btn-default"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></button>
+            <!-- Buttons -->
+          </div>
+            <input class="form-control" id="hotdog" type="text" placeholder="Enter Strain" aria-label="...">
         </div>
-          <input class="form-control" id="hotdog" type="text" placeholder="Enter Strain" aria-label="...">
-        </div>
-        </div>
-        </header>
-</main>
+    </header>
+  <!--   <footer id="footer">
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></button>
+    </footer> -->
+    </div>
+  </main>
 
 
 
@@ -42,6 +44,7 @@
     <script type="text/javascript" src="map.js">
     </script>
 </body>
+
 </html>
 
 

@@ -78,4 +78,10 @@ br {
   color: white;
 }
 
+#footer {
+  background-color: #2E0E02;
+/*  z-index: 2;
+*/  height: 60px;
+  width: 100%;
+}
 
