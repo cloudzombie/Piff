@@ -13,8 +13,9 @@
 
   <body>
   <main>
-    <header>
-      <div class="container-fluid">
+    <div class="container-fluid">
+          <header>
+
         <div class="row">
           <div class="col-xs-1">
             <button id="menu" class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
@@ -30,21 +31,29 @@
                 <input class="form-control" id="hotdog" type="text" placeholder="Enter Strain" aria-label="...">
             </div>
           </div>
-    </header>
-  <!--   <footer id="footer">
-      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></button>
-    </footer> -->
-    </div>
+        </div>
+      </header>
+       <div id="map"></div>
+       <script async defer
+                  src="https://maps.googleapis.com/maps/api/js?process.env.BOOM_BOOM_ROOM&callback=initialize">
+              </script>
     </div>
   </main>
 
+  <div class="side-panel">
+    <ul>
+      <li><a href="#">LINK</li>
+      <li></li>
+    </ul>
+  </div>
 
 
 
-           <div id="map"></div>
-              <script async defer
-                  src="https://maps.googleapis.com/maps/api/js?process.env.BOOM_BOOM_ROOM&callback=initialize">
-              </script>
+
+
+
+
+
 
 
     <script type="text/javascript" src="map.js">
