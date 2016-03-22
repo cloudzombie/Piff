@@ -12,12 +12,21 @@
   </head>
 
   <body>
+
+  <div class="side-panel" id="side-panel">
+    <ul>
+      <li><a href="#">LINK</a></li>
+      <li><a href="#">LINK</a></li>
+    </ul>
+  </div>
+
   <main>
-    <div class="container-fluid">
+    <div class="container-fluid" id="page-wrapper">
       <header class="main-header">
         <div class="row">
           <div class="col-xs-3">
-            <button id="ham-menu" class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
+            <a href="#side-panel" class="open-menu"><button id="ham-menu" class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button></a>
+            <a href="#" class="close-menu"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button></a>
               <!-- hamburger button -->
           </div>
           <div class="col-xs-9">
@@ -42,25 +51,7 @@
     </script>
     </div>
   </main>
-
-<!--   <div class="side-panel">
-    <ul>
-      <li><a href="#">LINK</li>
-      <li></li>
-    </ul>
-  </div> -->
-
-
-
-
-
-
-
-
-
-
 </body>
-
 </html>
 
 
