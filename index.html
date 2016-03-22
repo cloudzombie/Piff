@@ -14,11 +14,10 @@
   <body>
   <main>
     <div class="container-fluid">
-          <header>
-
+      <header class="main-header">
         <div class="row">
-          <div class="col-xs-1">
-            <button id="menu" class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
+          <div class="col-xs-3">
+            <button id="ham-menu" class="btn btn-default" type="button"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
               <!-- hamburger button -->
           </div>
           <div class="col-xs-9">
@@ -33,19 +32,23 @@
           </div>
         </div>
       </header>
+
        <div id="map"></div>
        <script async defer
-                  src="https://maps.googleapis.com/maps/api/js?process.env.BOOM_BOOM_ROOM&callback=initialize">
-              </script>
+          src="https://maps.googleapis.com/maps/api/js?process.env.BOOM_BOOM_ROOM&callback=initialize">
+        </script>
+
+    <script type="text/javascript" src="map.js">
+    </script>
     </div>
   </main>
 
-  <div class="side-panel">
+<!--   <div class="side-panel">
     <ul>
       <li><a href="#">LINK</li>
       <li></li>
     </ul>
-  </div>
+  </div> -->
 
 
 
@@ -56,8 +59,6 @@
 
 
 
-    <script type="text/javascript" src="map.js">
-    </script>
 </body>
 
 </html>
