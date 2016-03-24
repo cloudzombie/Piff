@@ -82,6 +82,11 @@ a {
   width: 34px;
 }
 
+.slide-panel > p {
+  color:white;
+  font: 16px;
+}
+
 .close-panel {
   display: none;
 }
