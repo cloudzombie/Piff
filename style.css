@@ -65,12 +65,7 @@ a {
 
   }
 .slide-panel a {
-    display: block;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
     color: white;
-    font-weight: bold;
-    padding: 12px;
 }
 
 .panel-button {

@@ -14,12 +14,17 @@
   <body>
 <!-- slide in panel -->
 <nav class="slide-panel" id="slide-panel">
-  <a href="https://stark-everglades-35905.herokuapp.com/strain_review/">STRAIN REVIEW</a>
-  <p class="note">To use: type in a city and state in the text field and click the globe. Then type
-  <br>the cannabis strain and click the leaf. This app fetches data via an API that
-  <br>is ONLY applicable to states which have some legalization in place; this app
-  <br>can not obtain data for states that have no legalization.
-  </p>
+  <div class="col-xs-12 panel-button">
+    <p class="note">To use: type in a city and state in the text field and click the globe. Then type
+      the cannabis strain and click the leaf. This app fetches data via an API that
+      is ONLY applicable to states which have some legalization in place; this app
+      can not obtain data for states that have no legalization.
+    </p>
+  </div>
+  <div class="col-xs-12 panel-button">
+    <a href="https://stark-everglades-35905.herokuapp.com/strain_review/">STRAIN REVIEW</a>
+  </div>
+
   <div>
     <div class="col-xs-12 panel-button">
           <div class="input-group" id="geo-locate">
@@ -30,8 +35,11 @@
               <input class="form-control" id="ice-cream" type="text" placeholder="Enter Location" aria-label="...">
             </div>
           </div>
-        </div>
-    </nav>
+          <div class="col-xs-12 panel-button">
+              <a href="#">CLOSE</a>
+          </div>
+  </div>
+</nav>
 
 <main>
   <div class="container-fluid">
