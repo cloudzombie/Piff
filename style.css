@@ -34,6 +34,10 @@ body {
   background-image: url('public/images/reload.gif');
 }
 
+#strain-hunter {
+
+}
+
 .loading-vis {
   visibility: hidden;
 }
@@ -52,12 +56,12 @@ a {
   transition: all 0.3s ease;
 }
 
- .main-header a {
+ /*.main-header a {
     position: absolute;
     bottom: -35px;
     color: white;
     font-size: 32px;
-  }
+  }*/
 
 
 .page-wrap {
