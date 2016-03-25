@@ -1,6 +1,9 @@
 var loc = [];
 var strainloc = [];
-// var $loading = $('.loading').hide();
+var toggleLoading = function(){
+  $('#loading').toggleClass('.loading-vis', false);
+};
+
 
 
 // initialize everything
@@ -119,11 +122,14 @@ function geocodeAddress(geocoder, resultsMap) {
     $.ajax({
       url: 'https://www.cannabisreports.com/api/v1.0/strains/search/' + userChoice,
       method: 'GET',
+      beforeSend: function(){
+        $('#loading').removeClass('loading-vis');
+      },
+      complete: function(){
+        $('#loading').addClass('loading-vis');
+      },
       data: {
         key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
-      },
-      beforeSend: function() {
-        $("#floatingBarsG").show();
       },
       dataType: 'jsonp',
     })
@@ -140,6 +146,12 @@ function geocodeAddress(geocoder, resultsMap) {
       $.ajax({
       url: 'https://www.cannabisreports.com/api/v1.0/strains/'+strainGame+'/availability/geo/'+loc[0]+'/'+loc[1]+'/25',
       method: 'GET',
+      beforeSend: function(){
+        $('#loading').removeClass('loading-vis');
+      },
+      complete: function(){
+        $('#loading').addClass('loading-vis');
+      },
       data : {
         key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
       },
@@ -170,6 +182,12 @@ function geocodeAddress(geocoder, resultsMap) {
             $.ajax({
               url: loc['link'],
               method: 'GET',
+              beforeSend: function(){
+              $('#loading').removeClass('loading-vis');
+              },
+              complete: function(){
+              $('#loading').addClass('loading-vis');
+              },
               data: {
                 key: 'fd6b7cc1c345cdfe7605da9d46a1d5f3dfc614aa'
               },
