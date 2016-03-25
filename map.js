@@ -86,7 +86,7 @@ function handleNoGeolocation(errorFlag) {
   // geocoding function for user to change location
 function geocodeAddress(geocoder, resultsMap) {
   var geocoder = new google.maps.Geocoder();
-  var address = document.getElementById('hotdog').value;
+  var address = document.getElementById('ice-cream').value;
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       resultsMap.setCenter(results[0].geometry.location);
