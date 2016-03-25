@@ -37,6 +37,10 @@ body {
   background-image: url('public/images/reload.gif');
 }
 
+.loading-vis {
+  visibility: hidden;
+}
+
 a {
   text-decoration: none;
 }

@@ -1,5 +1,8 @@
 var loc = [];
 var strainloc = [];
+// var $loading = $('.loading').hide();
+
+
 // initialize everything
 function initialize() {
 
